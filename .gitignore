@@ -13,3 +13,6 @@ __pycache__/
 model/
 model1006/
 *.keras
+
+# VS Code 개인 설정 (인터프리터 경로 등 컴퓨터별 설정)
+.vscode/
