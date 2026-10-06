@@ -1,0 +1,15 @@
+# OS
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+Untitled*.ipynb
+
+# Python cache
+__pycache__/
+*.pyc
+
+# 학습된 모델 체크포인트 (재학습으로 재생성 가능, 용량이 크고 개수가 많아 git에 올리지 않음)
+model/
+model1006/
+*.keras
