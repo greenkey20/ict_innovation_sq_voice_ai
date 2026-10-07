@@ -50,16 +50,17 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
   import sys; print(sys.executable)
   # /opt/anaconda3/envs/voice-ai/bin/python 이 나와야 정상
   ```
-- Jupyter는 **저장소 루트에서 실행**하세요 (`jupyter notebook` / `jupyter lab`). `dataset/`, `model/` 등에 대한 상대경로와 `import mat_kor`가 루트 기준으로 동작합니다.
+- Jupyter Notebook 또는 VS Code(Jupyter 확장)에서 실행합니다. 노트북은 주제별 폴더에 있고 **노트북이 있는 폴더가 작업 디렉터리**라서, 경로는 `../dataset/...`, `../models/...`처럼 `../`로 씁니다. 저장소 루트의 `mat_kor.py`는 `import sys; sys.path.append('..')` 다음에 `import mat_kor`로 불러옵니다. 커널은 `voice-ai`를 선택하세요.
 
 ## 저장소 구조
 
-- 최상위 `*.ipynb` — 주제별 실습 노트북 (번호/한글 제목순, 파일명 규칙은 아래 참고)
+- `001_python` ~ `008_natural_lg_processing` — 커리큘럼 순서의 주제별 폴더. 폴더 안 노트북 파일명 규칙은 아래 참고
+  - `001_python`, `002_data_libraries`(NumPy/Matplotlib), `003_gradient_descent`, `004_keras_dnn`, `005_unsupervised_learning`, `006_cnn`(MNIST/DogCat/CNN 기초), `007_image_processing`(전이학습, YOLO 객체 탐지 — 폴더 내 `이미지 처리_수업 내용 정리.md` 참고), `008_natural_lg_processing`(자연어 처리 시작)
 - `dataset/` — 실습용 CSV/이미지 데이터셋
 - `mat_kor.py` — Matplotlib 한글 폰트 설정 헬퍼 (`import mat_kor`)
 - `개발환경_이슈노트.md` — Python/패키지/가상환경 설정 중 겪은 문제-원인-해결 누적 기록
 - `CLAUDE.md` — Claude Code(AI 코딩 어시스턴트)가 이 저장소에서 작업할 때 참고하는 가이드
-- `model/`, `model1006/`, 최상위 `*.keras` — 학습된 모델 체크포인트 (**git에는 포함되지 않음**, 아래 "git에서 제외한 것들" 참고)
+- `models/` — 학습된 모델 체크포인트와 저장 모델 (`models/model1001/`, `models/model1006/`, `my_model.keras` 등, **git에는 포함되지 않음**, 아래 "이 저장소에 올리지 않는 것" 참고)
 
 ### 노트북 파일명 규칙
 
@@ -76,7 +77,8 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
 
 ### 이 저장소에 올리지 않는 것 (`.gitignore`로 제외)
 
-- `model/`, `model1006/`, 최상위 `*.keras` — 학습된 모델 체크포인트. 재학습으로 재생성 가능하고, 개수가 많고(수백 개) 용량이 커서(개별 파일 최대 290MB — GitHub의 파일당 100MB 하드 제한을 이미 초과) git으로 관리하지 않습니다.
+- `model/`, `model1006/`, `*.keras` (현재 `models/` 아래에 위치) — 학습된 모델 체크포인트. 재학습으로 재생성 가능하고, 개수가 많고(수백 개) 용량이 커서(개별 파일 최대 290MB — GitHub의 파일당 100MB 하드 제한을 이미 초과) git으로 관리하지 않습니다.
+- `*.weights`, `*.pt` — 사전학습 모델 가중치 (예: `yolov3.weights` 약 248MB는 100MB 제한 초과, `yolov8n.pt`는 라이브러리가 자동 다운로드).
 - `.ipynb_checkpoints/`, `__pycache__/`, `.DS_Store` — Jupyter/Python/macOS 캐시성 파일
 
 ### `.git/hooks/pre-commit` 안전장치

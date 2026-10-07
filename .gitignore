@@ -14,5 +14,9 @@ model/
 model1006/
 *.keras
 
+# 사전학습 모델 가중치 (용량이 크거나 라이브러리가 자동 다운로드함: yolov3.weights 약 248MB, yolov8n.pt 등)
+*.weights
+*.pt
+
 # VS Code 개인 설정 (인터프리터 경로 등 컴퓨터별 설정)
 .vscode/
