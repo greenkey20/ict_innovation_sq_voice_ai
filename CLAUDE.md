@@ -27,7 +27,7 @@ When asked to fix or extend a notebook, prefer editing the plain or `_은영 수
 
 ## Repository layout
 
-Notebooks are grouped into numbered folders following the curriculum: `001_python`, `002_data_libraries` (NumPy/Matplotlib), `003_gradient_descent` (also regression/logistic regression), `004_keras_dnn` (Keras DNNs, perceptron, pima, checkpoints, model reloading), `005_unsupervised_learning`, `006_cnn` (MNIST, DogCat, CNN notes), `007_image_processing` (transfer learning with MobileNetV2, YOLOv3/YOLOv8 object detection with pretrained models — see `007_image_processing/이미지 처리_수업 내용 정리.md`), `008_natural_lg_processing` (NLP, just started: text tokenization). Shared files stay at the root: `mat_kor.py`, `dataset/`, `models/`, `개발환경_이슈노트.md`, `README.md`. Notebook-adjacent write-ups (`Model_DNN_NoGen_비교.md`, `CNN_ReLU_활성화함수.md`) sit in the folder of their topic. `Untitled*.ipynb` is gitignored scratch. `temp/` is an untracked copy of `dataset/` contents — don't treat it as a source of truth.
+Notebooks are grouped into numbered folders following the curriculum: `001_python`, `002_data_libraries` (NumPy/Matplotlib), `003_gradient_descent` (also regression/logistic regression), `004_keras_dnn` (Keras DNNs, perceptron, pima, checkpoints, model reloading), `005_unsupervised_learning`, `006_cnn` (MNIST with Dense and with Conv2D, DogCat, CNN notes), `007_image_processing` (transfer learning with MobileNetV2, YOLOv3/YOLOv8 object detection with pretrained models — see `007_image_processing/이미지 처리_수업 내용 정리.md`), `008_natural_lg_processing` (NLP, just started: text tokenization). Shared files stay at the root: `mat_kor.py`, `dataset/`, `models/`, `개발환경_이슈노트.md`, `README.md`. Notebook-adjacent write-ups (`Model_DNN_NoGen_비교.md`, `CNN_ReLU_활성화함수.md`) sit in the folder of their topic. `Untitled*.ipynb` is gitignored scratch. `temp/` is an untracked copy of `dataset/` contents — don't treat it as a source of truth.
 
 ## Data and model artifacts
 
@@ -48,6 +48,7 @@ Notebooks are grouped into numbered folders following the curriculum: `001_pytho
 7. `pima-indians`, `다중 분류 문제 해결하기 및 과적합 피하기`, `과적합 피하기 및 모델 저장`, `best model 만들기*` — classification, multi-class problems, overfitting mitigation, checkpointing best models
 8. `비지도 학습` — unsupervised learning (clustering, via `sklearn.datasets`)
 9. `mnist_basic`, `mnist_검증_basic` (in `006_cnn`) — MNIST digit classification with Keras, including manual inference against hand-made images in `No_Img/` via `cv2`
+   Also in `006_cnn`: `CNN_Basic_MNIST*` (Conv2D→Conv2D→MaxPool→Dropout→Flatten→Dense MNIST CNN; checkpoints go to `../models/model_CNN_M/`), `CNN_MNIST_ModelLoad`, `CNN미인식확인` (inspecting misrecognized digits).
 10. `DogCat_V2.0_Basic*` — cat/dog binary image classification with a flatten-based DNN (`Dense(512)→Dropout→Dense(256)→Dropout→Dense(1, sigmoid)`), trained on `dataset/dogvscat_data/`, with `_Load` variants for reloading and evaluating saved models
 11. `007_image_processing/` — MobileNetV2 transfer learning (frozen ImageNet base + new classifier head, data in `dataset/small_train`) and YOLO object detection (v3 via OpenCV `cv2.dnn`, v8 via `ultralytics`); pretrained weights (`yolov3.weights` ~248MB, `yolov8n.pt`) are gitignored (`*.weights`, `*.pt`).
 12. `008_natural_lg_processing/` — NLP basics (text tokenization).
