@@ -20,3 +20,7 @@ model1006/
 
 # VS Code 개인 설정 (인터프리터 경로 등 컴퓨터별 설정)
 .vscode/
+
+# 대용량 외부 데이터셋 (직접 내려받아 dataset/ 아래에 두고 사용: aclImdb 약 203MB·파일 5만 개, GloVe 6B 약 2.1GB)
+dataset/aclImdb/
+dataset/glove.6B/
