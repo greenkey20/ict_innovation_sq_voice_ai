@@ -307,7 +307,7 @@ d_k=512에서는 나누지 않으면 한 단어에만 가중치 100%가 몰립�
 
 #### 5.5.4 앞서 배운 내용과 연결
 
-- 우리 노트북의 Keras `Attention`은 기본값이 `score_mode='dot'`이고 √d_k 스케일링이 없습니다. 우리가 쓴 128차원 정도에서는 큰 문제가 없었지만, Transformer는 차원이 크고 층도 깊어서 스케일링이 필요합니다.
+- 우리 노트북의 Keras `Attention`은 기본값이 `score_mode='dot'`이고 √d_k 스케일링이 없습니다. (차원이 작은 Seq2Seq 예제에서 실제로 문제가 됐는지는 확인해 보지 않았습니다.) Transformer는 차원이 크고 층도 깊어서 스케일링이 필요하다는 것이 논문의 설명입니다. 참고로 Transformer 노트북에서 쓰는 `layers.MultiHeadAttention`은 내부적으로 √(key_dim) 스케일링을 합니다.
 - 논문은 스케일링이 없는 dot-product attention이 d_k가 클 때 additive attention(Bahdanau 방식)보다 못하다는 선행 연구를 인용합니다(§3.2.1, [3]). 그 보완책이 √d_k입니다.
 - 위 4.5절 PE 내적 예(자기 자신과의 내적 32)에서도 차원이 늘수록 내적 크기가 커지는 현상을 볼 수 있습니다.
 
