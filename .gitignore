@@ -24,3 +24,6 @@ model1006/
 # 대용량 외부 데이터셋 (직접 내려받아 dataset/ 아래에 두고 사용: aclImdb 약 203MB·파일 5만 개, GloVe 6B 약 2.1GB)
 dataset/aclImdb/
 dataset/glove.6B/
+
+# API 키 등 비밀 값 (저장소 루트에서 013~ 노트북이 공통으로 사용, 절대 커밋 금지)
+.env
