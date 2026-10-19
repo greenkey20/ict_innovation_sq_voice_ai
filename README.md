@@ -51,14 +51,19 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
   # /opt/anaconda3/envs/voice-ai/bin/python 이 나와야 정상
   ```
 - Jupyter Notebook 또는 VS Code(Jupyter 확장)에서 실행합니다. 노트북은 주제별 폴더에 있고 **노트북이 있는 폴더가 작업 디렉터리**라서, 경로는 `../dataset/...`, `../models/...`처럼 `../`로 씁니다. 저장소 루트의 `mat_kor.py`는 `import sys; sys.path.append('..')` 다음에 `import mat_kor`로 불러옵니다. 커널은 `voice-ai`를 선택하세요.
+- **패키지 설치**는 노트북 셀에서 `%pip install ...`로 합니다 (`!pip`는 다른 파이썬에 설치될 수 있음). 이 맥(macOS 13)에서는 `faiss-cpu`를 `"faiss-cpu<1.8"`로 고정해야 합니다. 자세한 내용은 `개발환경_이슈노트.md` #13 참고.
+- **API 키(013~016)**: OpenAI 등의 키는 저장소 **루트의 `.env`** 에 두고 노트북에서 `load_dotenv()`로 읽습니다. `.env`는 git에 올라가지 않습니다 (아래 정책 참고). 해당 노트북의 API 호출은 실제로 과금됩니다.
 
 ## 저장소 구조
 
-- `001_python` ~ `008_natural_lg_processing` — 커리큘럼 순서의 주제별 폴더. 폴더 안 노트북 파일명 규칙은 아래 참고
+- `001_python` ~ `016_rag` — 커리큘럼 순서의 주제별 폴더. 폴더 안 노트북 파일명 규칙은 아래 참고
   - `001_python`, `002_data_libraries`(NumPy/Matplotlib), `003_gradient_descent`, `004_keras_dnn`, `005_unsupervised_learning`, `006_cnn`(MNIST/DogCat/CNN 기초), `007_image_processing`(전이학습, YOLO 객체 탐지 — 폴더 내 `이미지 처리_수업 내용 정리.md` 참고), `008_natural_lg_processing`(자연어 처리 시작)
+  - `009_rnn`(RNN/LSTM 시계열 예측, DNN vs LSTM 텍스트 분류), `010_seq2seq`(숫자·문자 역순 변환, Seq2Seq, teacher forcing), `011_attention_mechanism`(Seq2Seq + Attention, `Attention_개요_정리.md`), `012_transformer`(Transformer 인코더·디코더 예제, `Positional_Encoding_정리.md`, 논문 PDF)
+  - `013_openai_api`(OpenAI API: 챗봇, 요약, Whisper STT·TTS), `014_langchain`(LangChain 기초), `015_langgraph`(LangGraph 기초), `016_rag`(RAG와 LangGraph 웹검색 챗봇, 이전 부트캠프 `modu_llm5`와의 수업 비교 문서)
 - `dataset/` — 실습용 CSV/이미지 데이터셋
 - `mat_kor.py` — Matplotlib 한글 폰트 설정 헬퍼 (`import mat_kor`)
 - `개발환경_이슈노트.md` — Python/패키지/가상환경 설정 중 겪은 문제-원인-해결 누적 기록
+- `학습내용_검증기록.md` — 공부하면서 받은 설명 중 틀렸던 것과 아직 확정하지 못한 것을 모은 기록
 - `CLAUDE.md` — Claude Code(AI 코딩 어시스턴트)가 이 저장소에서 작업할 때 참고하는 가이드
 - `models/` — 학습된 모델 체크포인트와 저장 모델 (`models/model1001/`, `models/model1006/`, `my_model.keras` 등, **git에는 포함되지 않음**, 아래 "이 저장소에 올리지 않는 것" 참고)
 
@@ -69,7 +74,7 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
 | 접미사 | 의미 |
 |---|---|
 | (없음) | 기본/작업용 노트북 |
-| `_강사님` | 강사 참고용 버전 — 내용은 수정하지 말고 비교 참고용으로만 사용 (커널 메타데이터만 `voice-ai`로 통일해 둠) |
+| `_강사님` | 강사님이 제공한 **원본** — 내용은 수정하지 말고 비교 참고용으로만 사용 (커널 메타데이터만 `voice-ai`로 통일해 둠). 수업 중 직접 필기한 파일은 `_강사님` 없는 이름으로 둠 |
 | `_은영 수업` | 수업 중 직접 작업한 버전 |
 | `_Load` | 학습이 아니라 저장된 모델을 불러와 추론/평가하는 노트북 |
 
@@ -79,6 +84,8 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
 
 - `model/`, `model1006/`, `*.keras` (현재 `models/` 아래에 위치) — 학습된 모델 체크포인트. 재학습으로 재생성 가능하고, 개수가 많고(수백 개) 용량이 커서(개별 파일 최대 290MB — GitHub의 파일당 100MB 하드 제한을 이미 초과) git으로 관리하지 않습니다.
 - `*.weights`, `*.pt` — 사전학습 모델 가중치 (예: `yolov3.weights` 약 248MB는 100MB 제한 초과, `yolov8n.pt`는 라이브러리가 자동 다운로드).
+- `.env` — API 키 등 비밀 값 (저장소 루트, 하위 폴더 포함 전체 제외). 이 저장소는 public이라 실수로 올라가면 키가 노출되므로 새 키 파일을 만들 때도 `git check-ignore -v <파일>`로 확인하세요.
+- `dataset/aclImdb/`(IMDB 약 203MB·파일 5만 개), `dataset/glove.6B/`(GloVe 약 2.1GB) — 용량이 큰 외부 데이터셋. 직접 내려받아 `dataset/` 아래에 두고 사용합니다.
 - `.ipynb_checkpoints/`, `__pycache__/`, `.DS_Store` — Jupyter/Python/macOS 캐시성 파일
 - `.vscode/` — VS Code 개인 설정(인터프리터 경로 등 컴퓨터별 설정), `Untitled*.ipynb` — 임시 연습용 노트북
 
