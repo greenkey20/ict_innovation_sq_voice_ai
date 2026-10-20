@@ -56,10 +56,11 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
 
 ## 저장소 구조
 
-- `001_python` ~ `016_rag` — 커리큘럼 순서의 주제별 폴더. 폴더 안 노트북 파일명 규칙은 아래 참고
+- `001_python` ~ `017_sound` — 커리큘럼 순서의 주제별 폴더. 폴더 안 노트북 파일명 규칙은 아래 참고
   - `001_python`, `002_data_libraries`(NumPy/Matplotlib), `003_gradient_descent`, `004_keras_dnn`, `005_unsupervised_learning`, `006_cnn`(MNIST/DogCat/CNN 기초), `007_image_processing`(전이학습, YOLO 객체 탐지 — 폴더 내 `이미지 처리_수업 내용 정리.md` 참고), `008_natural_lg_processing`(자연어 처리 시작)
   - `009_rnn`(RNN/LSTM 시계열 예측, DNN vs LSTM 텍스트 분류), `010_seq2seq`(숫자·문자 역순 변환, Seq2Seq, teacher forcing), `011_attention_mechanism`(Seq2Seq + Attention, `Attention_개요_정리.md`), `012_transformer`(Transformer 인코더·디코더 예제, `Positional_Encoding_정리.md`, 논문 PDF)
   - `013_openai_api`(OpenAI API: 챗봇, 요약, Whisper STT·TTS), `014_langchain`(LangChain 기초), `015_langgraph`(LangGraph 기초), `016_rag`(RAG와 LangGraph 웹검색 챗봇, 이전 부트캠프 `modu_llm5`와의 수업 비교 문서)
+  - `017_sound`(소리가 숫자가 되는 과정: 샘플링, 샘플링 레이트, 주파수·주기·진폭, 사인파 소리 만들기, `sound_cheatsheet.png` 요약 포스터)
 - `dataset/` — 실습용 CSV/이미지 데이터셋
 - `mat_kor.py` — Matplotlib 한글 폰트 설정 헬퍼 (`import mat_kor`)
 - `개발환경_이슈노트.md` — Python/패키지/가상환경 설정 중 겪은 문제-원인-해결 누적 기록
