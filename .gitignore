@@ -27,3 +27,7 @@ dataset/glove.6B/
 
 # API 키 등 비밀 값 (저장소 루트에서 013~ 노트북이 공통으로 사용, 절대 커밋 금지)
 .env
+
+# 017_sound: 내 목소리 녹음(data/)과 캡처(results/)는 공개 저장소에 올리지 않음
+017_sound/data/
+017_sound/results/
