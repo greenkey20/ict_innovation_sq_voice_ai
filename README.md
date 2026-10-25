@@ -24,6 +24,26 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
 
 6주차 이후 2주간 프로젝트가 진행됩니다.
 
+### 5~6주차 상세: 음성 모델 10강 (`017_sound`)
+
+강사님 수업 노트북(`01_…ver3_수업용`) 첫머리의 "전체 10강에서 오늘의 위치" 표 기준입니다(캡처: `017_sound/zoom_capture_2026-10-20_10강에서_오늘의_위치.png`). 위 표의 **5주차 = 10강의 1주차, 6주차 = 10강의 2주차**와 내용이 맞습니다.
+
+| 10강 주차 | 강 | 주제 | 이 저장소의 노트북 | 진행 상황 (2026-10-26 기준) |
+|---|---|---|---|---|
+| 1주차: 소리와 데이터 (=5주차) | 1 | 파형·샘플링 | `017_sound/01_소리가_숫자가_되는_과정` | 완료 (10/20~21) |
+| | 2 | WAV·기본 전처리 | `017_sound/02_WAV파일과_기본전처리` | 완료 (10/21~22) |
+| | 3 | FFT·STFT 그림 읽기 | `017_sound/03_FFT_STFT_그림으로_소리읽기` (강사님 원본: `…_Ver3_실제음성정리_강사님`) | 10/22~23 수업 (FFT, STFT, 내 목소리 스펙트로그램) |
+| | 4 | Mel과 모델 입력 | — | 아직 |
+| | 5 | 데이터와 정답 준비 (길이가 다른 음성을 모델에 맞게 준비) | — | 아직 |
+| 2주차: 모델과 결과 (=6주차) | 6 | 음성 모델의 전체 구조 (예측 결과: 인식은 글, 합성은 소리) | — | 아직 |
+| | 7 | Whisper 음성 인식 | — | 아직 |
+| | 8 | WER·CER와 오류 분석 | — | 아직 |
+| | 9 | 음성 합성의 전체 흐름 | — | 아직 |
+| | 10 | 실제 음성 종합 실습 | — | 아직 |
+
+- `017_sound/00_intro.ipynb`는 이 과정의 소개(수업 목표, 왜 음성은 입력 준비가 복잡한가) 뼈대입니다.
+- 강의 "일차"는 달력 날짜와 같지 않습니다. 02 노트북 캡처의 폴더 이름이 `2일차`인데 실제로는 10/21~10/22에 걸쳐 진행되어, 한 강이 하루 반 정도씩 이어집니다.
+
 ### 음성 AI에서 다룰 문제
 
 | 작업 | 입력과 출력 | 예시 |
@@ -60,7 +80,7 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
   - `001_python`, `002_data_libraries`(NumPy/Matplotlib), `003_gradient_descent`, `004_keras_dnn`, `005_unsupervised_learning`, `006_cnn`(MNIST/DogCat/CNN 기초), `007_image_processing`(전이학습, YOLO 객체 탐지 — 폴더 내 `이미지 처리_수업 내용 정리.md` 참고), `008_natural_lg_processing`(자연어 처리 시작)
   - `009_rnn`(RNN/LSTM 시계열 예측, DNN vs LSTM 텍스트 분류), `010_seq2seq`(숫자·문자 역순 변환, Seq2Seq, teacher forcing), `011_attention_mechanism`(Seq2Seq + Attention, `Attention_개요_정리.md`), `012_transformer`(Transformer 인코더·디코더 예제, `Positional_Encoding_정리.md`, 논문 PDF)
   - `013_openai_api`(OpenAI API: 챗봇, 요약, Whisper STT·TTS), `014_langchain`(LangChain 기초), `015_langgraph`(LangGraph 기초), `016_rag`(RAG와 LangGraph 웹검색 챗봇, 이전 부트캠프 `modu_llm5`와의 수업 비교 문서)
-  - `017_sound`(소리가 숫자가 되는 과정: 샘플링, 샘플링 레이트, 주파수·주기·진폭, 사인파 소리 만들기, `sound_cheatsheet_1_main.png`·`sound_cheatsheet_2_deep.png` 요약 포스터 2장)
+  - `017_sound`(음성 모델 과정 1주차: `00_intro` 소개, `01` 소리가 숫자가 되는 과정(샘플링·주파수·주기·진폭·사인파), `02` WAV 파일과 기본 전처리(PCM16, 스테레오→모노, 리샘플링, 자르기, 저장), `03` FFT·STFT 그림으로 소리 읽기, `sound_cheatsheet_1_main.png`·`sound_cheatsheet_2_deep.png` 요약 포스터 2장, zoom 수업 캡처 2장)
 - `dataset/` — 실습용 CSV/이미지 데이터셋
 - `mat_kor.py` — Matplotlib 한글 폰트 설정 헬퍼 (`import mat_kor`)
 - `개발환경_이슈노트.md` — Python/패키지/가상환경 설정 중 겪은 문제-원인-해결 누적 기록
@@ -75,7 +95,7 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
 | 접미사 | 의미 |
 |---|---|
 | (없음) | 기본/작업용 노트북 |
-| `_강사님` | 강사님이 제공한 **원본** — 내용은 수정하지 말고 비교 참고용으로만 사용 (커널 메타데이터만 `voice-ai`로 통일해 둠). 수업 중 직접 필기한 파일은 `_강사님` 없는 이름으로 둠 |
+| `_강사님` (예: `…_Ver3_실제음성정리_강사님`처럼 이름 중간에 버전이 붙기도 함) | 강사님이 제공한 **원본** — 내용은 수정하지 말고 비교 참고용으로만 사용 (커널 메타데이터만 `voice-ai`로 통일해 둠). 수업 중 직접 필기한 파일은 `_강사님` 없는 이름으로 둠 |
 | `_은영 수업` | 수업 중 직접 작업한 버전 |
 | `_Load` | 학습이 아니라 저장된 모델을 불러와 추론/평가하는 노트북 |
 
@@ -89,6 +109,7 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
 - `dataset/aclImdb/`(IMDB 약 203MB·파일 5만 개), `dataset/glove.6B/`(GloVe 약 2.1GB) — 용량이 큰 외부 데이터셋. 직접 내려받아 `dataset/` 아래에 두고 사용합니다.
 - `.ipynb_checkpoints/`, `__pycache__/`, `.DS_Store` — Jupyter/Python/macOS 캐시성 파일
 - `.vscode/` — VS Code 개인 설정(인터프리터 경로 등 컴퓨터별 설정), `Untitled*.ipynb` — 임시 연습용 노트북
+- `017_sound/data/`, `017_sound/results/` — **내 목소리 녹음**(`my_voice*.wav`, `data/drafts/`)과 결과 캡처. 공개 저장소라서 올리지 않습니다. 강사님이 제공한 합성음 `tone_sequence_*.wav`도 이 폴더에 있어 함께 제외됩니다.
 
 ### `.git/hooks/pre-commit` 안전장치
 
@@ -104,6 +125,8 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
 ### 노트북 출력(이미지) 포함 여부
 
 `matplotlib` 그래프 등 셀 실행 결과가 그대로 저장된 노트북(`Keras code.ipynb` 등)은 용량이 커질 수 있지만(수 MB), GitHub가 `.ipynb`를 열람할 때 출력까지 렌더링해줘서 복습하기 좋으므로 **기본적으로 출력 포함 상태를 유지**합니다. 용량이 계속 신경 쓰이면 `nbstripout` 같은 도구로 커밋 전 출력만 제거하는 방법도 있습니다.
+
+단, **내 목소리·강사님 목소리 같은 음원 재생기(Audio 출력)** 와 `/Users/…` 같은 **내 컴퓨터 경로**가 출력에 들어 있으면 공개 저장소에서 누구나 보고 들을 수 있으므로 커밋 전에 제거합니다(합성음 재생기는 괜찮지만 GitHub 노트북 뷰어는 재생하지 못합니다). `.claude/skills/commit-prep`의 점검 스크립트(`scan_notebook_outputs.py`)로 확인할 수 있습니다.
 
 ### 커널을 고르면 생기는 메타데이터 변경
 
