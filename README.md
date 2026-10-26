@@ -22,7 +22,7 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
 | 5주차 | 음성이 모델 입력이 되는 과정 | 파형·샘플링, WAV 전처리, FFT·STFT, Spectrogram, Mel/Log-Mel 특징, 음성 데이터와 정답 구성 |
 | 6주차 | STT/TTS 모델 이해와 실제 활용 | STT/TTS 전체 구조, Whisper 음성인식, WER/CER 평가, TTS 구조, 음향모델·보코더, 실제 음성 종합 실습 |
 
-6주차 이후 2주간 프로젝트가 진행됩니다.
+6주차 이후 2주간 프로젝트가 진행됩니다. 2026-10-26 강사님 안내(주제 범주: DNN·CNN·RNN·OpenAI API 기반, 개시 전 주에 개발 계획서 작성·발표, 마지막 날 발표와 우수 프로젝트 선정)와 내 주제 검토는 `017_sound/프로젝트_안내_및_주제_검토.md`에 정리했습니다. 평가 기준과 정확한 날짜는 아직 확인하지 못했습니다.
 
 ### 5~6주차 상세: 음성 모델 10강 (`017_sound`)
 
@@ -33,7 +33,7 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
 | 1주차: 소리와 데이터 (=5주차) | 1 | 파형·샘플링 | `017_sound/01_소리가_숫자가_되는_과정` | 완료 (10/20~21) |
 | | 2 | WAV·기본 전처리 | `017_sound/02_WAV파일과_기본전처리` | 완료 (10/21~22) |
 | | 3 | FFT·STFT 그림 읽기 | `017_sound/03_FFT_STFT_그림으로_소리읽기` (강사님 원본: `…_Ver3_실제음성정리_강사님`) | 10/22~23 수업 (FFT, STFT, 내 목소리 스펙트로그램) |
-| | 4 | Mel과 모델 입력 | — | 아직 |
+| | 4 | Mel과 모델 입력 | `017_sound/lesson04_student_practice` (강사님 원본: `…_강사님`) | 10/26 수업 (STFT 파워 → Mel 필터 → Log-Mel → 모델 입력 `(1, 247, 40)`) |
 | | 5 | 데이터와 정답 준비 (길이가 다른 음성을 모델에 맞게 준비) | — | 아직 |
 | 2주차: 모델과 결과 (=6주차) | 6 | 음성 모델의 전체 구조 (예측 결과: 인식은 글, 합성은 소리) | — | 아직 |
 | | 7 | Whisper 음성 인식 | — | 아직 |
@@ -80,7 +80,7 @@ ICT 혁신 스퀘어 AI(Voice AI) 과정에서 다루는 Jupyter 노트북, 실�
   - `001_python`, `002_data_libraries`(NumPy/Matplotlib), `003_gradient_descent`, `004_keras_dnn`, `005_unsupervised_learning`, `006_cnn`(MNIST/DogCat/CNN 기초), `007_image_processing`(전이학습, YOLO 객체 탐지 — 폴더 내 `이미지 처리_수업 내용 정리.md` 참고), `008_natural_lg_processing`(자연어 처리 시작)
   - `009_rnn`(RNN/LSTM 시계열 예측, DNN vs LSTM 텍스트 분류), `010_seq2seq`(숫자·문자 역순 변환, Seq2Seq, teacher forcing), `011_attention_mechanism`(Seq2Seq + Attention, `Attention_개요_정리.md`), `012_transformer`(Transformer 인코더·디코더 예제, `Positional_Encoding_정리.md`, 논문 PDF)
   - `013_openai_api`(OpenAI API: 챗봇, 요약, Whisper STT·TTS), `014_langchain`(LangChain 기초), `015_langgraph`(LangGraph 기초), `016_rag`(RAG와 LangGraph 웹검색 챗봇, 이전 부트캠프 `modu_llm5`와의 수업 비교 문서)
-  - `017_sound`(음성 모델 과정 1주차: `00_intro` 소개, `01` 소리가 숫자가 되는 과정(샘플링·주파수·주기·진폭·사인파), `02` WAV 파일과 기본 전처리(PCM16, 스테레오→모노, 리샘플링, 자르기, 저장), `03` FFT·STFT 그림으로 소리 읽기, `sound_cheatsheet_1_main.png`·`sound_cheatsheet_2_deep.png` 요약 포스터 2장, zoom 수업 캡처 2장)
+  - `017_sound`(음성 모델 과정 1주차: `00_intro` 소개, `01` 소리가 숫자가 되는 과정(샘플링·주파수·주기·진폭·사인파), `02` WAV 파일과 기본 전처리(PCM16, 스테레오→모노, 리샘플링, 자르기, 저장), `03` FFT·STFT 그림으로 소리 읽기, `lesson04_student_practice` Mel·Log-Mel·모델 입력(4강), `프로젝트_안내_및_주제_검토.md` 프로젝트 안내 정리와 내 주제 검토, `sound_cheatsheet_1_main.png`·`sound_cheatsheet_2_deep.png` 요약 포스터 2장, zoom 수업 캡처 2장)
 - `dataset/` — 실습용 CSV/이미지 데이터셋
 - `mat_kor.py` — Matplotlib 한글 폰트 설정 헬퍼 (`import mat_kor`)
 - `개발환경_이슈노트.md` — Python/패키지/가상환경 설정 중 겪은 문제-원인-해결 누적 기록
