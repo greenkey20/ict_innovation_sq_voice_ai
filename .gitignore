@@ -31,3 +31,6 @@ dataset/glove.6B/
 # 017_sound: 내 목소리 녹음(data/)과 캡처(results/)는 공개 저장소에 올리지 않음
 017_sound/data/
 017_sound/results/
+
+# 017_sound: 7강에서 내려받은 Whisper 모델 파일(수십~수백 MB)은 올리지 않음
+017_sound/models/
