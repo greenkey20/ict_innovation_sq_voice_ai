@@ -32,5 +32,8 @@ dataset/glove.6B/
 017_sound/data/
 017_sound/results/
 
+# 017_sound: 수업 Zoom 캡처(macOS 기본 이름 Screenshot ...)에는 다른 참석자 얼굴·이름이 나옴
+017_sound/Screenshot*.png
+
 # 017_sound: 7강에서 내려받은 Whisper 모델 파일(수십~수백 MB)은 올리지 않음
 017_sound/models/
